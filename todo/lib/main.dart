@@ -9,7 +9,7 @@ void main() async{
 
   Hive.registerAdapter(TaskAdapter());
 
- var box = await Hive.openBox('todo');
+  await Hive.openBox('todo');
 
   runApp(const MyApp());
 }

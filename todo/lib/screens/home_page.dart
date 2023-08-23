@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:todo/components/dialog_box.dart';
+import 'package:todo/components/float_action_btn.dart';
 import 'package:todo/db/database.dart';
 import 'package:todo/models/task.dart';
 
@@ -75,13 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _addTask,
-        child: const Icon(
-          Icons.add,
-          color: Colors.white,
-          ),
-        ),
+      floatingActionButton: FloatActionBtn(onPressed: _addTask),
       body: ListView.builder(
         itemCount: db.tasks.length,
         itemBuilder: (context, index) {
