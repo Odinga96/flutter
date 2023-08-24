@@ -1,25 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:track_expense/utis/format.dart';
 
 class TotalSpent extends StatelessWidget {
-  const TotalSpent({Key? key, required this.total}) : super(key: key);
+    TotalSpent({Key? key, required this.total}) : super(key: key);
   
   final double total;
+  
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 8, right: 8),
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          color: Colors.black,
-        ),
-        child: Column(
-          children: [
-            _buildCalendarPicker(),
-            _buildTotalDisplay(),
-          ],
-        ),
+    return Container(
+      color: Colors.black,
+      height: 100,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          _buildCalendarPicker(),
+          _buildTotalDisplay(),
+        ],
       ),
     );
   }
@@ -34,29 +32,14 @@ class TotalSpent extends StatelessWidget {
   }
 
   Widget _buildTotalDisplay() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Text.rich(
-          TextSpan(
-            children: <InlineSpan>[
-              TextSpan(
-                text: 'KES',
-                style: TextStyle(
-                  color: Colors.teal.shade100,
-                ),
-              ),
-              TextSpan(
-                text: ' $total',
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
+    return Text( Format.formatValue(total, 'KES'),
+      style: const TextStyle(
+                  // fontWeight: FontWeight.bold,
                   color: Colors.white,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ],
-    );
+                  fontSize: 50,)
+      );
+    
+  
+  
   }
 }
