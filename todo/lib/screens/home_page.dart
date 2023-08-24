@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
 import 'package:todo/components/dialog_box.dart';
 import 'package:todo/components/float_action_btn.dart';
 import 'package:todo/db/database.dart';
@@ -29,7 +28,7 @@ class _MyHomePageState extends State<MyHomePage> {
  
   
   //createTas
-  void saveTaask (){
+  void saveTask (){
     setState(() {
       db.tasks.add(Task(_controller.text, false));
       db.updateData();
@@ -62,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
       return DialogBox(
         controller: _controller,
         onCancel: () => Navigator.of(context).pop(),
-        onSave: saveTaask,
+        onSave: saveTask,
         );
   }
   );
