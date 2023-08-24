@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:track_expense/screens/expense_report.dart';
 
 void main() {
   runApp(const MainApp());
@@ -10,11 +11,8 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
-      home: const  Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+      debugShowCheckedModeBanner: false,
+      home: const ExpenseReport(title: 'Expenses'),
       theme: ThemeData(primarySwatch: Colors.orange),
     );
   }
